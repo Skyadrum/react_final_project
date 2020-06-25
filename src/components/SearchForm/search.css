@@ -1,0 +1,11 @@
+.cards {
+    width: 75%;
+    margin: auto;
+    margin-top: 35px;
+}
+
+.card-header{
+    background-color: #045888;
+    color: whitesmoke;
+    font-size: 25px;
+}
