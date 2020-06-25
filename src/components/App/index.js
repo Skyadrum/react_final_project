@@ -4,6 +4,7 @@ import Menu from '../Menu'
 import { BrowserRouter, Route } from 'react-router-dom'
 import SearchForm from '../SearchForm'
 import SubsForm from '../SubsForm'
+import EventList from '../EventList'
 
 import './app.css'
 

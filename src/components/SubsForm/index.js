@@ -3,7 +3,9 @@ import { Form,Card, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { newEvent } from '../../Actions'
 
+import '../animate.css'
 import './subForm.css'
+
 
 const SubsForm = (props) => {
 
@@ -29,7 +31,7 @@ const SubsForm = (props) => {
     }
 
     return(
-        <Card className='cards'>
+        <Card className='cards animated fadeIn' border='info'>
             <Card.Header className='card-header'>New Event!!!</Card.Header>
             <Card.Body>
             <Form>

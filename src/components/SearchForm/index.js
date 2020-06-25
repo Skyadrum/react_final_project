@@ -4,7 +4,7 @@ import './search.css'
 
 const Search = () => {
     return(
-        <Card className='cards'>
+        <Card className='cards animated fadeIn' border="info">
             <Card.Header className='card-header'>Show Time!!!</Card.Header>
             <Card.Body>
                 <Form>
