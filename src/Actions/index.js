@@ -10,8 +10,14 @@ export const newEvent = (data) => {
 // Peticion a la Api
 
 export const getEvents = () => {
-    return{
-        type: 'GET_EVENTS',
-        payload: 
+    
+    return async (dispatch, getState) => {
+        const tokenAuth = 'AQ2463AUT4HQLOJAEHDO'
+        const events = await eventApi.get(`categories/?token=${tokenAuth}`)
+
+        dispatch({
+            type: 'GET_EVENT',
+            payload: events.data.categories
+        })
     }
 }

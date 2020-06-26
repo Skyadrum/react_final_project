@@ -24,6 +24,18 @@ const subsFormReducer = (eventList = events, action) => {
 
 }
 
+const eventReducer = (eventList = [], action) => {
+    switch(action.type){
+        case 'GET_EVENT':
+            return action.payload
+        default:
+            return eventList
+    }
+
+}
+
+
 export default combineReducers({
-    newEvents: subsFormReducer
+    newEvents: subsFormReducer,
+    eventList: eventReducer
 })

@@ -2,6 +2,8 @@ import React from 'react'
 
 import Menu from '../Menu'
 import { BrowserRouter, Route } from 'react-router-dom'
+import { Col, Container } from 'react-bootstrap'
+
 import SearchForm from '../SearchForm'
 import SubsForm from '../SubsForm'
 import EventList from '../EventList'
@@ -18,6 +20,11 @@ const App = () => {
                 <Route path="/" exact component={ SearchForm }></Route>
                 <Route path="/SubsForm" component={ SubsForm }></Route>
             </BrowserRouter>
+            <Container>
+                <Col>
+                    {/* <EventList/> */}
+                </Col>
+            </Container>
         </div>
     )
 }
