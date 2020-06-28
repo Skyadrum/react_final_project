@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form,Card, Button } from 'react-bootstrap'
+import { Form,Card, Button, Col, Row, Table } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { newEvent } from '../../Actions'
 
@@ -20,7 +20,16 @@ const SubsForm = (props) => {
             dsc: eventDsc.current.value
         }
         props.newEvent(eventObj)
+        showResults('none')
+        showSpinner('block');
 
+        // Aqui va el timer para mostrar resultados
+        setTimeout(() => {
+            showResults('block')
+            showSpinner('none');
+        }, 3000);
+
+        console.log('Se activa spinner');
         cleanForm();
     }
 
@@ -30,8 +39,19 @@ const SubsForm = (props) => {
         eventDsc.current.value = ''
     }
 
+    const showSpinner = (display) =>{
+        const spinner = document.querySelector('.contenido-spinner')
+        spinner.style.display = display
+    }
+
+    const showResults = (display) =>{
+        const table = document.querySelector('.resultado')
+        table.style.display = display
+    }
+
     return(
-        <Card className='cards animated fadeIn' border='info'>
+        <div className='cards animated fadeIn'>
+        <Card  border='info'>
             <Card.Header className='card-header'>New Event!!!</Card.Header>
             <Card.Body>
             <Form>
@@ -58,7 +78,45 @@ const SubsForm = (props) => {
                 
             </Card.Body>
         </Card>
+
+        <Card className="margin-20 contenido-spinner">
+            <div className="spinner">
+                <div className="bounce1"></div>
+                <div className="bounce2"></div>
+                <div className="bounce3"></div>
+            </div>
+        </Card>
+
+        <Card className='resultado margin-20'>
+        <Table striped bordered hover size="sm">
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Event Description</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                {/* {
+                    props.listEvents.map((evento) => {
+                        return <tr>
+                                    <td>{ evento.eventName }</td>
+                                    <td>{ evento.dsc }</td>
+                                    <td>{ evento.email }</td>
+                                </tr>
+                    }) 
+                } */}
+            </tbody>
+        </Table>
+        </Card>
+        </div>
     )
 }
 
-export default connect(null, { newEvent })(SubsForm)
+const mapStateToProps = (state) => {
+    return {
+        listEvents: state.newEvent
+    }
+}
+
+export default connect(mapStateToProps, { newEvent })(SubsForm)

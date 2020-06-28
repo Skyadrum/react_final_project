@@ -24,12 +24,12 @@ const subsFormReducer = (eventList = events, action) => {
 
 }
 
-const eventReducer = (eventList = [], action) => {
+const eventReducer = (category = [], action) => {
     switch(action.type){
         case 'GET_EVENT':
             return action.payload
         default:
-            return eventList
+            return category
     }
 
 }

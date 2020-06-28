@@ -3,6 +3,7 @@ import { Nav, Navbar, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import './menu.css'
+import logo from './logo.png'
 
 
 const Menu = () => {
@@ -10,16 +11,16 @@ const Menu = () => {
         
         <Navbar bg="warning" variant="warning" sticky="top" expand="lg">
             <Navbar.Brand>
-                <h1>Eventide!!!</h1>
+                <img src={ logo } alt="Devil May Cry" className='logo'/>
             </Navbar.Brand>
 
             <Nav className="ml-auto">
                 <Link to="/">
-                    <Button variant="outline-primary" className='btn' size="lg">Home</Button>
+                    <Button variant="outline-primary" className='btn' size="sm">Home</Button>
                 </Link>
 
                 <Link to="/subsForm">
-                    <Button variant="outline-success" className='btn' size="lg">Register</Button>
+                    <Button variant="outline-success" className='btn' size="sm">Register</Button>
                 </Link>
             </Nav>
         </Navbar>
